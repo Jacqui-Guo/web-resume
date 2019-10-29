@@ -1,0 +1,271 @@
+body {
+  background: radial-gradient(200% 100% at bottom center, #0070aa, #0b2570, #000035, #000);
+  background: radial-gradient(220% 105% at top center, #000 10%, #000035 40%, #0b2570 65%, #0070aa);
+  background-attachment: fixed;
+  overflow: hidden;
+  min-width: 1170px;
+}
+@keyframes rotate {
+  0% {
+    transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+  }
+  100% {
+    transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+  }
+}
+.stars {
+  transform: perspective(500px);
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 0;
+  perspective-origin: 50% 100%;
+  left: 50%;
+  animation: rotate 90s infinite linear;
+}
+.star {
+  width: 2px;
+  height: 2px;
+  background: #F7F7B6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0 -300px;
+  transform: translate3d(0, 0, -300px);
+  backface-visibility: hidden;
+}
+.box_s {
+  box-shadow: 2px 2px 4px 2px rgba(255, 255, 255, 0.5);
+}
+.section {
+  position: relative;
+}
+.page01_header {
+  position: fixed;
+  z-index: 999;
+  top: 0.01rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.page01_header .header_left {
+  width: 1.6rem;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px 2px rgba(255, 255, 255, 0.5);
+  line-height: 0.32rem;
+  padding: 0.05rem;
+  box-sizing: border-box;
+  font-size: 0.12rem;
+  color: #fff;
+}
+.page01_header .header_left img {
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  margin-right: 0.08rem;
+}
+.page01_header .header_left .btn {
+  background-color: transparent;
+  color: #fff;
+  box-shadow: 2px 2px 4px 2px rgba(255, 255, 255, 0.5);
+  margin-right: 0.05rem;
+}
+.page01_header .header_left:hover {
+  cursor: pointer;
+}
+.page01_header .header_right_icon {
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  padding: 0.05rem;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 4px 2px rgba(255, 255, 255, 0.5);
+}
+.page01_header .header_right_icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.section.page01_con {
+  overflow: hidden;
+}
+.section.page01_con .page01_con {
+  color: #fff;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 36px;
+  font-size: 0.12rem;
+}
+.section.page01_con .page01_con .title {
+  font-size: 0.3rem;
+  font-weight: 500;
+  margin-bottom: 0.28rem;
+  /*开始时，标题不可见，所以可以进行默认的偏移*/
+  transform: translateY(1000%);
+}
+.section.page01_con .page01_con > :nth-child(2),
+.section.page01_con .page01_con > :nth-child(3),
+.section.page01_con .page01_con > :nth-child(4),
+.section.page01_con .page01_con > :nth-child(5) {
+  transform: translateY(1000%);
+}
+.section.current.page01_con .page01_con .title {
+  transform: translateY(0%);
+  /*添加过渡样式*/
+  transition: transform 1s;
+}
+.section.current.page01_con .page01_con > :nth-child(2),
+.section.current.page01_con .page01_con > :nth-child(3),
+.section.current.page01_con .page01_con > :nth-child(4),
+.section.current.page01_con .page01_con > :nth-child(5) {
+  transform: translateY(0%);
+}
+.section.current.page01_con .page01_con > :nth-child(2) {
+  /*添加过渡样式*/
+  transition: 1s transform 1s;
+}
+.section.current.page01_con .page01_con > :nth-child(3) {
+  /*添加过渡样式*/
+  transition: 2s transform 1s;
+}
+.section.current.page01_con .page01_con > :nth-child(4) {
+  /*添加过渡样式*/
+  transition: 3s transform 1s;
+}
+.section.current.page01_con .page01_con > :nth-child(5) {
+  /*添加过渡样式*/
+  transition: 4s transform 1s;
+}
+.two {
+  position: relative;
+}
+.two .search {
+  width: 50%;
+  height: 3rem;
+  position: absolute;
+  left: 4%;
+  top: 20%;
+  overflow: hidden;
+}
+.two .search .searchBar {
+  width: 5.29rem;
+  height: 0.36rem;
+  background: url("../images/search.png") no-repeat;
+  /*开始时，搜索框不可见，所以可以进行默认的偏移*/
+  transform: translateX(-200%);
+}
+.two .search .searchText {
+  /*开始时，文本不可见*/
+  width: 0px;
+  overflow: hidden;
+  height: 0.12rem;
+  color: transparent;
+  position: absolute;
+  left: 0.15rem;
+  top: 0.16rem;
+}
+.two .search .searchResult {
+  position: absolute;
+  width: 3.15rem;
+  height: 0px;
+  left: 2%;
+  top: 16%;
+  color: #fff;
+  overflow: hidden;
+}
+/*第二屏过渡效果的实现*/
+.two.current .search > .searchBar {
+  transform: translateX(0%);
+  transition: transform 1s;
+}
+.two.current .search > .searchText {
+  color: #fff;
+  width: 99px;
+  transition: width 1s 1s steps(5);
+}
+.two.current .search > .searchResult {
+  height: 3rem;
+  transition: height 1s 2s;
+}
+.three > div {
+  display: flex;
+  /*设置主轴方向上的排列方式*/
+  justify-content: space-around;
+  /*设置侧轴方向上的排列方式*/
+  align-items: center;
+}
+.three {
+  overflow: hidden;
+}
+.three .shield {
+  width: 440px;
+  font-size: 0;
+  position: absolute;
+  top: 15%;
+  left: 5%;
+}
+.three .shield > img {
+  /*添加过渡效果*/
+  transition: transform 1s;
+}
+.three .shield > img :nth-of-type(1) {
+  transform: translate(100px, 100px) rotate(30deg);
+}
+.three .shield > img:nth-of-type(2) {
+  transform: translate(-100px, -100px) rotate(-30deg);
+}
+.three .shield > img:nth-of-type(3) {
+  transform: translate(200px, 200px) rotate(60deg);
+}
+.three .shield > img:nth-of-type(4) {
+  transform: translate(-200px, -200px) rotate(-60deg);
+}
+.three .shield > img:nth-of-type(5) {
+  transform: translate(150px, 150px) rotate(90deg);
+}
+.three .shield > img:nth-of-type(6) {
+  transform: translate(50px, 150px) rotate(-90deg);
+}
+.three .shield > img:nth-of-type(7) {
+  transform: translate(-150px, -150px) rotate(60deg);
+}
+.three .shield > img:nth-of-type(8) {
+  transform: translate(10px, -250px) rotate(-90deg);
+}
+.three .shield > img:nth-of-type(9) {
+  transform: translate(-250px, 10px) rotate(45deg);
+}
+.three .desc_l {
+  display: none;
+}
+/*添加第二屏过渡效果*/
+.three.current .shield > img {
+  /*清除默认添加的transform*/
+  transform: none;
+}
+.three.current .shield > img {
+  /*添加过渡效果*/
+}
+.three.current .shield > img:hover {
+  cursor: pointer;
+}
+.three.current .desc_l {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.12rem;
+  position: absolute;
+  right: 2%;
+  top: 26%;
+  width: 55%;
+}
+.four .accrodion-group {
+  margin-top: 7%;
+}
