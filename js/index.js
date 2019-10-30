@@ -35,6 +35,9 @@ $(function () {
         navigation: true,
         scrollingSpeed:1500,
         navigationColor:'#ffffff',
+        navigationTooltips:['首页','个人简介','技能掌握','我的作品','联系我'],
+        css3:'ture',
+        anchors:['page1','page2','page3','page4','page5'],
         /* index:当前屏的索引，索引从1开始*/
        afterLoad:function(anchorLink,index){
            /*将其它屏的current样式标记清除*/
@@ -42,7 +45,25 @@ $(function () {
            setTimeout(function(){
                /*当滚动到某一个屏之后，添加样式标记*/
                $(".section").eq(index-1).addClass("current");},500);
-       }
+       },
+       /* 组件初始完毕或者插件内容渲染完毕 */    
+       afterRender:() => {
+           let current_pages = window.location.hash;
+        //    $(".header_right_icon a").each((index,val) => {
+        //         // console.log('aaa',,val,index)
+        //         if($('a',this).attr('href') == current_pages) {
+        //             $(this).siblings().removeClass('active');  // 删除其他兄弟元素的样式
+        //             $(this).addClass('active');   // 添加当前元素的样式
+        //             return;
+        //         }
+        //     })
+            $(".header_right_icon > a").click(function() {
+                $(this).siblings().removeClass('active');  // 删除其他兄弟元素的样式
+                $(this).addClass('active');   // 添加当前元素的样式
+            });
+       },
+       
+
     });
 
 
